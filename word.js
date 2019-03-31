@@ -2,30 +2,40 @@ const Letter = require("./letter.js")
 
 class Word{
     constructor(letterArray){
+        for(var i = 0; i < letterArray.length; i++){
+
+            letterArray[i] = new Letter(letterArray[i])
+        }
+
         this.letterArray = letterArray;
     }
 
     displayWord(){
         var word = ""
         for(var i = 0; i < this.letterArray.length;i++){
+
             word += this.letterArray[i].showLetter() + " "
         }
         return word
     }
 
-    checkLetter(letter){
-        console.log(this.letterArray.length)
+    checkGuess(letter){
+        var guessedArray = []
+
         for(var i = 0; i < this.letterArray.length; i++){
-           this.letterArray[i].check(letter);
-           console.log(i)
-           console.log(this.letterArray[i].guessed)
+            if(!this.letterArray[i].guessedCorrectly){
+                this.letterArray[i].checkLetter(letter);
+
+                if(this.letterArray[i].guessedCorrectly){
+                    guessedArray.push(this.letterArray[i])
+                }
+            }
         }
-       
+   
+        return guessedArray.length > 0;
+
     }
 }
 
-var letters = [new Letter("a"), new Letter("b"), new Letter("c")]
-let word = new Word(letters)
-console.log(word)
-console.log(word.displayWord())
-word.checkLetter("a");
+
+module.exports = Word;

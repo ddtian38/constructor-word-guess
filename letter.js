@@ -2,18 +2,21 @@ class Letter{
 
     constructor(letter){
         this.letter = letter;
-        this.guessed = false;
+        this.guessedCorrectly = false;
     }
 
     showLetter(){
-        if (!this.guessed){
+        if (!this.guessedCorrectly){
             return "_"
         }
         return this.letter
     }
 
-    check(l){
-            this.guessed = (l === this.letter);
+    checkLetter(l){
+        //If letter has not been guessed correctly
+            this.guessedCorrectly = (l === this.letter);
+            return this.guessedCorrectly
+
 
     }
 
