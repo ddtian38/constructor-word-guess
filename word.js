@@ -3,13 +3,12 @@ const Letter = require("./letter.js")
 class Word{
     constructor(letterArray){
         for(var i = 0; i < letterArray.length; i++){
-
             letterArray[i] = new Letter(letterArray[i])
         }
 
         this.letterArray = letterArray;
     }
-    
+
     displayWord(){
         var word = ""
         for(var i = 0; i < this.letterArray.length;i++){
@@ -20,7 +19,6 @@ class Word{
 
     checkGuess(letter){
         var guessedArray = []
-
         for(var i = 0; i < this.letterArray.length; i++){
             if(!this.letterArray[i].guessedCorrectly){
                 this.letterArray[i].checkLetter(letter);

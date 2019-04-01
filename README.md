@@ -1,1 +1,9 @@
-# constructor-word-guess
+# constructor-word-guess game
+
+A word guessing that is programmed in Node.js and showing the use of constructors. There are three files: letter.js, word.js, and index.js. 
+
+Letter.js has the Letter class where it has the attributes: the character itself and a boolean to indicate if it was guessed correctly, initally set to false. The methods are: showLetter(), which if the character was guessed correctly, it would show the character itself; else, an underscore is revealed; checkLetter(), which takes a letter as an input and compares it with the this.letter attritube. If the two match, the this.guessedCorrectly attribute is changed to true.
+
+Word.js imports the Letter class and contains the Word class. The Word class has a single attribute, a list of characters for a specfic word that the user needs to guess; the elements in the array will objects with the Letter class. The methods are: displayWord(), which loop will through the this.letterArray and the elements will call the showLetter(), (Read information about the showLetter() in the second paragraph); checkGuess(), which takes the letter the user inputs as argument and loops the this.letterArray attribute. The methods will compare what the user has input and the list of characters of the word that needs to be guessed. The checkLetter() is called for each Letter object. (Read information about the showLetter() in the second paragraph). If the inputted letter matches one of the characters that needs to be guessed, the letter is added into the guessedArray. If the guessedArray has a length greater than zero, the user has successfully guessed a character. 
+
+Index.js will run the main game, importing the Word class. The user has ten guesses and the inquirer NPM package is used to prompt the user to input a letter. One of the challenges of the game is to run the game recursively. If the user still has number of guesses greater than zero and has not successfully guessed the word, the promptUser() is called to continue the game.
