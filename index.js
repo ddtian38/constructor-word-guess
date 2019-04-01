@@ -24,7 +24,11 @@ function promptUser(){
                 name:"letter",
                 message:"Guess a letter!",
                 validate: function(value){
-                    return value.match(/[a-zA-Z]/) 
+                    if(value.match(/[a-zA-Z]/) && value.length === 1){
+                        return true
+                    }
+                    return false;
+                    
                 }
             }
         ]).then(function(answer){

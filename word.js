@@ -9,11 +9,10 @@ class Word{
 
         this.letterArray = letterArray;
     }
-
+    
     displayWord(){
         var word = ""
         for(var i = 0; i < this.letterArray.length;i++){
-
             word += this.letterArray[i].showLetter() + " "
         }
         return word

@@ -15,17 +15,8 @@ class Letter{
     checkLetter(l){
         //If letter has not been guessed correctly
             this.guessedCorrectly = (l === this.letter);
-            return this.guessedCorrectly
-
-
     }
 
 }
 
 module.exports = Letter;
-
-// let letter = new Letter("a")
-// console.log(letter)
-// letter.check("a");
-// console.log(letter)
-// console.log(letter.display())
